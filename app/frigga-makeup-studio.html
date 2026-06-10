@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frigga Makeup Studio & Academy — Komal Singh</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919999999999" class="wa-btn" title="Chat on WhatsApp">💬</a>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modalTitle">Book Appointment</h3>
+    <p id="modalSubtitle">Fill in your details and we'll confirm shortly.</p>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Frigga <span>✦</span> Studio</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#academy">Academy</a>
+    <a href="#gallery">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#booking">Contact</a>
+    <button class="nav-cta" onclick="openBookingModal('Quick Appointment','Let us know your preferred date and service.')">Book Now</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Where Beauty Meets Artistry</div>
+    <h1>Unveil Your<br><em>Finest</em><br>Look</h1>
+    <p class="hero-desc">Professional makeup artistry by Komal Singh — 5 years of transforming brides, film artists, and beauty students into confident, radiant versions of themselves.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="scrollTo('#services')">Explore Services</button>
+      <button class="btn-outline" onclick="scrollTo('#ai-analyzer')">AI Skin Analyzer</button>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Brides Transformed</div>
+      </div>
+      <div>
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Avg Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Students Trained</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div style="position:relative;">
+      <div class="hero-img-frame">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:8rem;opacity:0.15;">💄</div>
+        <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(255,255,255,0.9);padding:1rem;border-radius:4px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--dark);">Komal Singh</div>
+          <div style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose);">Lead Makeup Artist & Founder</div>
+          <div style="display:flex;gap:0.3rem;margin-top:0.4rem;font-size:0.75rem;color:#C9A96E;">★★★★★</div>
+        </div>
+      </div>
+      <div class="hero-floater">
+        <div class="floater-num">5+</div>
+        <div class="floater-text">Years Exp</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>✦</span> Bridal Makeup <span>✦</span> HD Makeup <span>✦</span> Airbrush <span>✦</span> Editorial <span>✦</span> Skincare Consultation <span>✦</span> Party Looks <span>✦</span> Film & TV <span>✦</span> Professional Courses <span>✦</span> AI Skin Analysis <span>✦</span> Bridal Makeup <span>✦</span> HD Makeup <span>✦</span> Airbrush <span>✦</span> Editorial <span>✦</span> Skincare Consultation <span>✦</span> Party Looks <span>✦</span> Film & TV <span>✦</span> Professional Courses <span>✦</span> AI Skin Analysis <span>✦</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-tag">What We Offer</div>
+      <h2>Our <em>Signature</em><br>Services</h2>
+    </div>
+    <button class="btn-outline" onclick="scrollTo('#booking')">Book a Service</button>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card" onclick="bookService('Bridal Makeup','₹8,000 onwards — Classic, HD, or Airbrush Bridal look by Komal Singh')">
+      <div class="service-icon">👰</div>
+      <h3>Bridal Makeup</h3>
+      <p>Complete bridal transformation — traditional, fusion, or contemporary — with pre-bridal skin prep and trial sessions.</p>
+      <div class="service-price">₹8,000 <span>/ onwards</span></div>
+    </div>
+    <div class="service-card" onclick="bookService('HD & Airbrush','₹4,500 onwards — Long-lasting flawless finish')">
+      <div class="service-icon">✨</div>
+      <h3>HD & Airbrush</h3>
+      <p>Camera-ready flawless finish using latest airbrush technology. Ideal for photoshoots, events, and film.</p>
+      <div class="service-price">₹4,500 <span>/ onwards</span></div>
+    </div>
+    <div class="service-card" onclick="bookService('Party & Occasion Makeup','₹2,500 onwards — Glam looks for any occasion')">
+      <div class="service-icon">🎉</div>
+      <h3>Party & Occasion</h3>
+      <p>From subtle glam to bold statements — perfectly crafted looks for engagements, receptions, and parties.</p>
+      <div class="service-price">₹2,500 <span>/ onwards</span></div>
+    </div>
+    <div class="service-card" onclick="bookService('Editorial & Film Makeup','₹5,000 onwards — Professional film/TV/photoshoot makeup')">
+      <div class="service-icon">🎬</div>
+      <h3>Editorial & Film</h3>
+      <p>High-concept editorial looks for magazines, film productions, music videos, and digital campaigns.</p>
+      <div class="service-price">₹5,000 <span>/ onwards</span></div>
+    </div>
+    <div class="service-card" onclick="bookService('Skincare Consultation','₹1,200 — AI-powered + expert skin analysis session')">
+      <div class="service-icon">🌿</div>
+      <h3>Skincare Consultation</h3>
+      <p>AI-powered skin analysis combined with expert advice on skincare routines, products, and pre-event prep.</p>
+      <div class="service-price">₹1,200 <span>/ session</span></div>
+    </div>
+    <div class="service-card" onclick="bookService('Pre-Bridal Package','₹15,000 — Full 3-session pre-bridal transformation')">
+      <div class="service-icon">💆</div>
+      <h3>Pre-Bridal Package</h3>
+      <p>Complete 3-session package with skin analysis, facials, hair consultation, and full trial makeup.</p>
+      <div class="service-price">₹15,000 <span>/ package</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>✦ Bridal Makeup ✦</span>
+    <span>Professional Academy ✦</span>
+    <span>AI Skin Analysis ✦</span>
+    <span>Editorial & Film ✦</span>
+    <span>Bridal Makeup ✦</span>
+    <span>Professional Academy ✦</span>
+  </div>
+</div>
+
+<!-- AI SKIN ANALYZER -->
+<section id="ai-analyzer">
+  <div class="ai-header reveal">
+    <div class="section-tag" style="justify-content:center;color:var(--gold);">AI-Powered Feature</div>
+    <h2>Smart <em>Skin</em> Analysis</h2>
+    <p>Our AI analyzes your skin tone, undertone, and type to recommend perfect makeup shades and skincare products — personalized just for you.</p>
+  </div>
+  <div class="ai-container reveal">
+    <div class="ai-left">
+      <div class="ai-upload-zone" id="uploadZone" onclick="triggerUpload()">
+        <div class="upload-icon">📷</div>
+        <p><strong>Upload your photo</strong> or choose your skin tone below</p>
+        <p style="margin-top:0.4rem;font-size:0.78rem;">Supported: JPG, PNG · Max 5MB</p>
+      </div>
+      <input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="handleFileUpload(this)">
+      <div class="ai-or">— or select skin tone —</div>
+      <div class="tone-selector">
+        <div class="tone-btn" style="background:#FDDCB5;" onclick="selectTone(this,'Fair')"></div>
+        <div class="tone-btn" style="background:#F4C07A;" onclick="selectTone(this,'Light')"></div>
+        <div class="tone-btn" style="background:#E8A86C;" onclick="selectTone(this,'Medium')"></div>
+        <div class="tone-btn" style="background:#C68642;" onclick="selectTone(this,'Tan')"></div>
+        <div class="tone-btn" style="background:#8D5524;" onclick="selectTone(this,'Brown')"></div>
+        <div class="tone-btn" style="background:#4A2511;" onclick="selectTone(this,'Deep')"></div>
+      </div>
+      <button class="ai-analyze-btn" onclick="runAIAnalysis()">✦ Analyze My Skin</button>
+    </div>
+    <div class="ai-right">
+      <div class="ai-results" id="aiResults">
+        <h4>Your Skin Analysis</h4>
+        <div id="resultsBody">
+          <p style="color:rgba(250,247,243,0.4);font-size:0.88rem;text-align:center;padding:2rem 0;">Select your skin tone or upload a photo to see personalized results</p>
+        </div>
+      </div>
+      <div class="ai-loading" id="aiLoading">
+        <div class="ai-spinner"></div>
+        <p style="color:rgba(250,247,243,0.5);font-size:0.85rem;">Analyzing your skin profile…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY -->
+<section id="academy">
+  <div class="academy-grid">
+    <div class="reveal">
+      <div class="section-tag">Learn & Grow</div>
+      <h2>Frigga <em>Beauty</em><br>Academy</h2>
+      <p style="color:var(--muted);font-size:0.92rem;line-height:1.8;margin:1.2rem 0 2rem;">Learn professional makeup artistry from Komal Singh — courses designed for beginners to advanced artists, with hands-on training and industry-ready certification.</p>
+      <div class="academy-courses" id="courseList">
+        <div class="course-card reveal" onclick="enrollCourse('Basic Makeup Course','12,000')">
+          <div class="course-info">
+            <h4>Basic Makeup Course</h4>
+            <p>Foundation, contouring, eye looks, skincare basics</p>
+          </div>
+          <div class="course-meta">
+            <div class="course-duration">⏱ 30 Days</div>
+            <div class="course-fee">₹12,000</div>
+          </div>
+        </div>
+        <div class="course-card reveal" onclick="enrollCourse('Professional Makeup Artist Course','28,000')">
+          <div class="course-info">
+            <h4>Professional Artist Course <span class="course-badge">Popular</span></h4>
+            <p>Bridal, HD, airbrush, editorial, business skills</p>
+          </div>
+          <div class="course-meta">
+            <div class="course-duration">⏱ 60 Days</div>
+            <div class="course-fee">₹28,000</div>
+          </div>
+        </div>
+        <div class="course-card reveal" onclick="enrollCourse('Bridal Specialist Masterclass','18,000')">
+          <div class="course-info">
+            <h4>Bridal Specialist Masterclass</h4>
+            <p>Hindu, Muslim, South Indian, Christian bridal looks</p>
+          </div>
+          <div class="course-meta">
+            <div class="course-duration">⏱ 21 Days</div>
+            <div class="course-fee">₹18,000</div>
+          </div>
+        </div>
+        <div class="course-card reveal" onclick="enrollCourse('Airbrush Makeup Workshop','8,500')">
+          <div class="course-info">
+            <h4>Airbrush Makeup Workshop</h4>
+            <p>Hands-on airbrush technique and equipment training</p>
+          </div>
+          <div class="course-meta">
+            <div class="course-duration">⏱ 7 Days</div>
+            <div class="course-fee">₹8,500</div>
+          </div>
+        </div>
+      </div>
+      <button class="enroll-btn reveal" onclick="showToast('📚 Course brochure sent to your email!')">Download Full Brochure</button>
+    </div>
+    <div class="reveal" style="text-align:center;">
+      <div style="background:var(--white);border-radius:4px;padding:3rem 2rem;box-shadow:var(--shadow);">
+        <div style="font-size:4rem;margin-bottom:1.5rem;">🎓</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;margin-bottom:1rem;">Why Learn With Us?</h3>
+        <div style="display:flex;flex-direction:column;gap:1.2rem;text-align:left;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:var(--rose-light);color:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.85rem;">✓</div>
+            <div><strong style="font-size:0.92rem;">Industry-Expert Trainer</strong><br><span style="font-size:0.82rem;color:var(--muted);">Learn directly from Komal Singh with 5+ years of professional experience</span></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:var(--rose-light);color:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.85rem;">✓</div>
+            <div><strong style="font-size:0.92rem;">Hands-On Practice</strong><br><span style="font-size:0.82rem;color:var(--muted);">Work on real models and actual bridal clients during training</span></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:var(--rose-light);color:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.85rem;">✓</div>
+            <div><strong style="font-size:0.92rem;">Certified Diploma</strong><br><span style="font-size:0.82rem;color:var(--muted);">Recognized certification to kickstart your professional career</span></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:var(--rose-light);color:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.85rem;">✓</div>
+            <div><strong style="font-size:0.92rem;">Kit Included</strong><br><span style="font-size:0.82rem;color:var(--muted);">Professional makeup kit worth ₹3,500 included with selected courses</span></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:var(--rose-light);color:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.85rem;">✓</div>
+            <div><strong style="font-size:0.92rem;">Placement Support</strong><br><span style="font-size:0.82rem;color:var(--muted);">Network with salons, studios, and bridal houses after completion</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div>
+      <div class="section-tag">Our Work</div>
+      <h2>The <em>Portfolio</em></h2>
+    </div>
+    <div class="gallery-filters">
+      <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
+      <button class="filter-btn" onclick="filterGallery('bridal',this)">Bridal</button>
+      <button class="filter-btn" onclick="filterGallery('editorial',this)">Editorial</button>
+      <button class="filter-btn" onclick="filterGallery('party',this)">Party</button>
+    </div>
+  </div>
+  <div class="gallery-masonry reveal" id="galleryGrid">
+    <div class="gallery-item" data-cat="bridal">
+      <div class="gallery-item-inner gi-1" style="min-height:260px;">
+        <span style="font-size:4rem;opacity:0.4;">💍</span>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-text"><h4>Royal Bridal</h4><p>Traditional Lehenga Look</p></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-cat="editorial">
+      <div class="gallery-item-inner gi-3" style="min-height:180px;">
+        <span style="font-size:3.5rem;opacity:0.4;">📸</span>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-text"><h4>Vogue Editorial</h4><p>Bold Eye Drama</p></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-cat="party">
+      <div class="gallery-item-inner gi-5" style="min-height:180px;">
+        <span style="font-size:3.5rem;opacity:0.4;">🌹</span>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-text"><h4>Evening Glam</h4><p>Reception Look</p></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-cat="bridal">
+      <div class="gallery-item-inner gi-2" style="min-height:180px;">
+        <span style="font-size:3.5rem;opacity:0.4;">👸</span>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-text"><h4>Airbrush Bridal</h4><p>South Indian Style</p></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-cat="editorial">
+      <div class="gallery-item-inner gi-6" style="min-height:260px;">
+        <span style="font-size:4rem;opacity:0.4;">🎨</span>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-text"><h4>Avant-Garde</h4><p>Art Collaboration</p></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-cat="party">
+      <div class="gallery-item-inner gi-4" style="min-height:180px;">
+        <span style="font-size:3.5rem;opacity:0.4;">💃</span>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-text"><h4>Festive Fusion</h4><p>Sangeet Look</p></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-cat="bridal">
+      <div class="gallery-item-inner gi-7" style="min-height:180px;">
+        <span style="font-size:3.5rem;opacity:0.4;">🌸</span>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-text"><h4>Floral Bridal</h4><p>Spring Wedding</p></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-cat="editorial">
+      <div class="gallery-item-inner gi-8" style="min-height:180px;">
+        <span style="font-size:3.5rem;opacity:0.4;">⚡</span>
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-text"><h4>Metallic Strike</h4><p>Fashion Week</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI LOOK GENERATOR -->
+<section id="look-generator">
+  <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+    <div class="section-tag" style="justify-content:center;">AI Assistant</div>
+    <h2>Your <em>Personalized</em> Look Guide</h2>
+    <p style="color:var(--muted);font-size:0.92rem;margin-top:0.8rem;max-width:520px;margin-left:auto;margin-right:auto;">Describe your occasion and preferences — our AI crafts a step-by-step makeup routine just for you.</p>
+  </div>
+  <div class="look-gen-grid reveal">
+    <div class="look-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Occasion</label>
+          <select id="occSelect">
+            <option>Bridal — Wedding Day</option>
+            <option>Engagement Ceremony</option>
+            <option>Sangeet / Mehndi</option>
+            <option>Reception Party</option>
+            <option>Cocktail Evening</option>
+            <option>Casual Day Look</option>
+            <option>Professional / Office</option>
+            <option>Editorial Shoot</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Skin Tone</label>
+          <select id="toneSelect">
+            <option>Fair</option>
+            <option>Light</option>
+            <option>Medium</option>
+            <option>Tan</option>
+            <option>Brown</option>
+            <option>Deep</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Style Preference</label>
+          <select id="styleSelect">
+            <option>Classic & Elegant</option>
+            <option>Bold & Dramatic</option>
+            <option>Natural & Dewy</option>
+            <option>Glam & Glittery</option>
+            <option>Minimal & Clean</option>
+            <option>Traditional & Rich</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Eye Color / Feature</label>
+          <select id="eyeSelect">
+            <option>Dark Brown Eyes</option>
+            <option>Black Eyes</option>
+            <option>Hooded Eyes</option>
+            <option>Almond Eyes</option>
+            <option>Round Eyes</option>
+            <option>Monolid Eyes</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Outfit Color (optional)</label>
+        <input type="text" id="outfitColor" placeholder="e.g. Deep red lehenga, blush pink saree…">
+      </div>
+      <button class="generate-btn" onclick="generateLook()">✦ Generate My Look</button>
+    </div>
+    <div class="look-result">
+      <div class="look-placeholder" id="lookPlaceholder">
+        <div class="look-placeholder-icon">💄</div>
+        <p>Fill in your details and click <strong>Generate My Look</strong><br>to receive a personalized makeup guide.</p>
+      </div>
+      <div class="look-output" id="lookOutput">
+        <h3 id="lookTitle">Your Personalized Look</h3>
+        <p class="look-subtitle" id="lookSubtitle">Crafted for your occasion & features</p>
+        <ul class="look-steps" id="lookSteps"></ul>
+        <div class="product-tags" id="lookProducts">
+          <h5>Recommended Products</h5>
+          <div id="lookProductTags"></div>
+        </div>
+      </div>
+      <div style="display:none;text-align:center;padding:3rem;" id="lookLoading">
+        <div style="width:36px;height:36px;border:2px solid var(--rose-light);border-top-color:var(--rose);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 1rem;"></div>
+        <p style="color:var(--muted);font-size:0.85rem;">Crafting your look…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="test-header reveal">
+    <div class="section-tag" style="justify-content:center;color:var(--gold);">Happy Clients</div>
+    <h2>What Our <em>Brides</em> Say</h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"Komal di transformed me beyond my imagination. My bridal look was absolutely ethereal — everyone kept complimenting me all day long. She listened to exactly what I wanted and delivered perfection."</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#C8847A;">PR</div>
+        <div>
+          <div class="test-name">Priya Rajput</div>
+          <div class="test-occasion">Wedding — Dec 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"I enrolled in the 60-day professional course and it completely changed my life. I now run my own home studio and earn well. Komal ma'am is a brilliant mentor — patient, detailed, and inspiring."</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#C9A96E;">SK</div>
+        <div>
+          <div class="test-name">Sneha Kumari</div>
+          <div class="test-occasion">Academy Student — 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"The AI Skin Analyzer is so accurate! It correctly identified my undertone as warm and recommended the most flattering shades. My party look turned out incredible. Will definitely come back!"</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#8B4A44;">AM</div>
+        <div>
+          <div class="test-name">Anjali Mishra</div>
+          <div class="test-occasion">Reception Makeup — Jan 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"Komal has an incredible eye for detail. For my mehndi and sangeet, she did two completely different looks and both were stunning. The airbrush finish lasted the entire night through all the dancing!"</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#4A3F35;">RS</div>
+        <div>
+          <div class="test-name">Ritu Sharma</div>
+          <div class="test-occasion">Bridal Package — Nov 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"The editorial shoot makeup was exactly what the photographer wanted — dramatic, high-fashion, and flawless on camera. Komal understood the brief perfectly and executed it beautifully."</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#C8847A;">NV</div>
+        <div>
+          <div class="test-name">Neha Verma</div>
+          <div class="test-occasion">Editorial Shoot — Mar 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"After completing the Bridal Specialist Masterclass, I booked 8 brides in my first month! The practical training on real clients was invaluable. Best investment I made in my career."</p>
+      <div class="test-author">
+        <div class="test-avatar" style="background:#C9A96E;">KP</div>
+        <div>
+          <div class="test-name">Kavita Pandey</div>
+          <div class="test-occasion">Academy Graduate — 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="booking-grid">
+    <div class="reveal">
+      <div class="section-tag">Get In Touch</div>
+      <h2>Book Your <em>Appointment</em></h2>
+      <p>Ready to look and feel your absolute best? Reach out to schedule a consultation or book a service directly. Early booking is recommended, especially for bridal dates.</p>
+      <ul class="contact-list">
+        <li><span class="contact-icon">📍</span> Frigga Makeup Studio, Civil Lines, Prayagraj, UP</li>
+        <li><span class="contact-icon">📞</span> +91 98765 43210</li>
+        <li><span class="contact-icon">✉️</span> hello@friggastudio.in</li>
+        <li><span class="contact-icon">🕐</span> Mon – Sat: 9:00 AM – 8:00 PM</li>
+        <li><span class="contact-icon">📸</span> @frigga.makeup (Instagram)</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="booking-form-card">
+        <h3>Book an Appointment</h3>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" id="bName">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="+91 XXXXX XXXXX" id="bPhone">
+          </div>
+          <div class="form-group">
+            <label>Service</label>
+            <select id="bService">
+              <option>Bridal Makeup</option>
+              <option>HD & Airbrush</option>
+              <option>Party & Occasion</option>
+              <option>Editorial & Film</option>
+              <option>Skincare Consultation</option>
+              <option>Pre-Bridal Package</option>
+              <option>Academy Enrollment</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="bDate">
+          </div>
+          <div class="form-group">
+            <label>Time Slot</label>
+            <select id="bTime">
+              <option>9:00 AM</option>
+              <option>11:00 AM</option>
+              <option>1:00 PM</option>
+              <option>3:00 PM</option>
+              <option>5:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Special Requests (optional)</label>
+          <input type="text" placeholder="Any specific requirements or notes…" id="bNotes">
+        </div>
+        <button class="submit-btn" onclick="submitBooking()">✦ Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <div class="about-img">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;">
+          <span style="font-size:5rem;opacity:0.2;">💄</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--rose-dark);opacity:0.6;">Komal Singh</span>
+        </div>
+      </div>
+      <div class="about-cert">
+        <div class="cert-icon">🏆</div>
+        <div>
+          <div class="cert-label">Certified By</div>
+          <div class="cert-val">CIDESCO & VLCC</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <div class="section-tag">About the Artist</div>
+      <h2>Meet <em>Komal Singh</em></h2>
+      <p>With over 5 years of dedicated experience in professional makeup artistry, Komal Singh has established herself as one of the most sought-after makeup artists in the region. Her journey began with a passion for enhancing natural beauty and has grown into a full-fledged studio and academy.</p>
+      <p>Trained under industry veterans and certified by CIDESCO, Komal brings global makeup techniques to local sensibilities — creating looks that are both culturally rooted and internationally trendy.</p>
+      <p>Her studio, Frigga Makeup Studio & Academy, is a space where clients receive bespoke beauty experiences and aspiring artists receive world-class training.</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-name">Bridal Expertise <span>98%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width:98%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Airbrush Technique <span>95%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width:95%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Editorial Makeup <span>90%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width:90%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Teaching & Mentoring <span>97%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width:97%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Frigga <span>✦</span> Studio</h3>
+      <p>Where artistry meets elegance. Professional makeup studio and academy run by Komal Singh, Prayagraj, UP.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">📸</a>
+        <a href="#" class="social-btn">🎵</a>
+        <a href="#" class="social-btn">▶️</a>
+        <a href="#" class="social-btn">💼</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Bridal Makeup</a></li>
+        <li><a href="#services">HD & Airbrush</a></li>
+        <li><a href="#services">Party & Events</a></li>
+        <li><a href="#services">Editorial</a></li>
+        <li><a href="#services">Skincare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Academy</h4>
+      <ul>
+        <li><a href="#academy">Basic Course</a></li>
+        <li><a href="#academy">Pro Artist</a></li>
+        <li><a href="#academy">Bridal Master</a></li>
+        <li><a href="#academy">Airbrush</a></li>
+        <li><a href="#academy">Schedule</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#about">About Komal</a></li>
+        <li><a href="#gallery">Portfolio</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#booking">Book Now</a></li>
+        <li><a href="#ai-analyzer">AI Analyzer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Frigga Makeup Studio & Academy · All rights reserved · Prayagraj, UP</p>
+    <p>Crafted with ♥ for Komal Singh</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
