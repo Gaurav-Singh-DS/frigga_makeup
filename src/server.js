@@ -157,7 +157,7 @@ app.post("/api/submit-booking", async (req, res) => {
             <p style="color:#5A5A5A;line-height:1.6;margin-top:20px;">
               <strong>Questions?</strong> Reach out to us anytime at:<br>
               📧 <a href="mailto:gauravsingh99984@gmail.com" style="color:#1F9B8E;text-decoration:none;">gauravsingh99984@gmail.com</a><br>
-              💬 <a href="https://wa.me/918604624397" style="color:#1F9B8E;text-decoration:none;">WhatsApp: +91 8604624397</a>
+              💬 <a href="https://wa.me/918840997965" style="color:#1F9B8E;text-decoration:none;">WhatsApp: +91 8840997965</a>
             </p>
             
             <p style="color:#1F9B8E;font-size:14px;margin-top:20px;">
