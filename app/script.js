@@ -3,7 +3,7 @@
 //  All frontend JS — AI calls go to localhost:3001
 // ============================================
 
-const API_BASE = "http://localhost:3001/api";
+const API_BASE = "http://localhost:3002/api";
 
 // ── CUSTOM CURSOR ──
 const cursor     = document.getElementById("cursor");
@@ -66,15 +66,49 @@ function bookService(name) {
 function submitBooking() {
   const name  = document.getElementById("bName").value.trim();
   const phone = document.getElementById("bPhone").value.trim();
+  const email = document.getElementById("bEmail") ? document.getElementById("bEmail").value.trim() : "";
+  const service = document.getElementById("bService").value;
+  const date = document.getElementById("bDate") ? document.getElementById("bDate").value : "";
+  const time = document.getElementById("bTime") ? document.getElementById("bTime").value : "";
+  const notes = document.getElementById("bNotes") ? document.getElementById("bNotes").value.trim() : "";
+
   if (!name || !phone) {
     showToast("⚠️ Please fill in your name and phone number.");
     return;
   }
-  const service = document.getElementById("bService").value;
-  showToast(`🎉 Booking confirmed! <strong>${name}</strong>, we'll call you for <strong>${service}</strong>.`, 5000);
-  document.getElementById("bName").value  = "";
-  document.getElementById("bPhone").value = "";
-  document.getElementById("bNotes").value = "";
+
+  if (!email) {
+    showToast("⚠️ Please enter your email address.");
+    return;
+  }
+
+  // Send to backend
+  const bookingData = { name, phone, email, service, date, time, notes };
+
+  fetch(`${API_BASE}/submit-booking`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(bookingData)
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        showToast(`🎉 Booking confirmed! <strong>${name}</strong>, confirmation email sent to ${email}!`, 5000);
+        // Clear form
+        document.getElementById("bName").value  = "";
+        document.getElementById("bPhone").value = "";
+        document.getElementById("bNotes").value = "";
+        if (document.getElementById("bEmail")) document.getElementById("bEmail").value = "";
+        if (document.getElementById("bDate")) document.getElementById("bDate").value = "";
+        if (document.getElementById("bTime")) document.getElementById("bTime").value = "";
+      } else {
+        showToast(`⚠️ ${data.error || "Booking failed. Please try again."}`);
+      }
+    })
+    .catch(err => {
+      console.error("Booking error:", err);
+      showToast("❌ Could not connect to server. Make sure backend is running on port 3001.");
+    });
 }
 
 function enrollCourse(name, fee) {
