@@ -3,7 +3,7 @@
 //  All frontend JS — AI calls go to localhost:3001
 // ============================================
 
-const API_BASE = "http://localhost:3002/api";
+const API_BASE = "/api";
 
 // ── CUSTOM CURSOR ──
 const cursor     = document.getElementById("cursor");
