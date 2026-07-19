@@ -49,8 +49,8 @@
     <h1>Unveil Your<br><em>Finest</em><br>Look</h1>
     <p class="hero-desc">Professional makeup artistry by Komal Singh — 5 years of transforming brides, film artists, and beauty students into confident, radiant versions of themselves.</p>
     <div class="hero-btns">
-      <button class="btn-primary" onclick="scrollTo('#services')">Explore Services</button>
-      <button class="btn-outline" onclick="scrollTo('#ai-analyzer')">AI Skin Analyzer</button>
+      <button class="btn-primary" data-scroll-target="#services">Explore Services</button>
+      <button class="btn-outline" data-scroll-target="#ai-analyzer">AI Skin Analyzer</button>
     </div>
     <div class="hero-stats">
       <div>
@@ -99,7 +99,7 @@
       <div class="section-tag">What We Offer</div>
       <h2>Our <em>Signature</em><br>Services</h2>
     </div>
-    <button class="btn-outline" onclick="scrollTo('#booking')">Book a Service</button>
+    <button class="btn-outline" data-scroll-target="#booking">Book a Service</button>
   </div>
   <div class="services-grid reveal">
     <div class="service-card" onclick="bookService('Bridal Makeup','₹8,000 onwards — Classic, HD, or Airbrush Bridal look by Komal Singh')">
@@ -545,12 +545,12 @@
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="your.email@example.com" id="bEmail">
+          <input type="email" placeholder="your.email@example.com" id="bEmail" autocomplete="email">
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Phone</label>
-            <input type="tel" placeholder="+91 XXXXX XXXXX" id="bPhone">
+            <input type="tel" placeholder="10-digit mobile number" id="bPhone" maxlength="10" inputmode="numeric" autocomplete="tel">
           </div>
           <div class="form-group">
             <label>Service</label>
@@ -562,6 +562,7 @@
               <option>Skincare Consultation</option>
               <option>Pre-Bridal Package</option>
               <option>Academy Enrollment</option>
+              <option>Other</option>
             </select>
           </div>
         </div>
@@ -642,7 +643,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <h3>Frigga <span>✦</span> Studio</h3>
-      <p>Where artistry meets elegance. Professional makeup studio and academy run by Komal Singh, Prayagraj, UP.</p>
+      <p>Where artistry meets elegance. Professional makeup studio and academy run by Komal Singh, Lucknow, UP.</p>
       <div class="footer-socials">
         <a href="#" class="social-btn">📸</a>
         <a href="#" class="social-btn">🎵</a>
@@ -682,7 +683,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Frigga Makeup Studio & Academy · All rights reserved · Prayagraj, UP</p>
+    <p>© 2025 Frigga Makeup Studio & Academy · All rights reserved · Lucknow, UP</p>
     <p>Crafted with ♥ for Komal Singh</p>
   </div>
 </footer>

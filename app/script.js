@@ -35,9 +35,32 @@ const revealObserver = new IntersectionObserver(entries => {
 document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
 // ── HELPERS ──
-function scrollToSection(selector) {
-  document.querySelector(selector).scrollIntoView({ behavior: "smooth" });
+function goToSection(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+
+  const offset = 90;
+  const top = window.pageYOffset + el.getBoundingClientRect().top - offset;
+
+  window.scrollTo({
+    top,
+    behavior: "smooth"
+  });
 }
+
+function scrollToSection(selector) {
+  goToSection(selector);
+}
+
+function bindScrollButtons() {
+  document.querySelectorAll('[data-scroll-target]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      goToSection(btn.getAttribute('data-scroll-target'));
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', bindScrollButtons);
 
 function showToast(msg, dur = 3500) {
   const t = document.getElementById("toast");
@@ -63,6 +86,15 @@ function bookService(name) {
   showToast(`✦ <strong>${name}</strong> selected — fill the form to confirm!`);
 }
 
+function isValidPhone(phone) {
+  const normalized = phone.replace(/\D/g, "");
+  return normalized.length === 10;
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+}
+
 function submitBooking() {
   const name  = document.getElementById("bName").value.trim();
   const phone = document.getElementById("bPhone").value.trim();
@@ -72,13 +104,23 @@ function submitBooking() {
   const time = document.getElementById("bTime") ? document.getElementById("bTime").value : "";
   const notes = document.getElementById("bNotes") ? document.getElementById("bNotes").value.trim() : "";
 
-  if (!name || !phone) {
-    showToast("⚠️ Please fill in your name and phone number.");
+  if (!name) {
+    showToast("⚠️ Please enter your name.");
+    return;
+  }
+
+  if (!isValidPhone(phone)) {
+    showToast("⚠️ Please enter a valid 10-digit mobile number.");
     return;
   }
 
   if (!email) {
     showToast("⚠️ Please enter your email address.");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    showToast("⚠️ Please enter a valid email address.");
     return;
   }
 
