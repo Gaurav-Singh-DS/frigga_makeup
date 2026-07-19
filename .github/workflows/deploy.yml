@@ -20,7 +20,8 @@ jobs:
           script: |
             cd /home/ubuntu/frigga-studio
 
-            git pull origin main
+            git fetch origin
+            git reset --hard origin/main
 
             cd src
             npm install
