@@ -1,4 +1,4 @@
-# ✦ Frigga Makeup Studio & Academy
+# ✦ Frigga Makeup Studio & Academy (frigga.in)
 ### AI-Powered Website — Setup Guide
 
 ---
@@ -135,5 +135,5 @@ You should see:
 
 ## 📞 Studio Contact
 **Frigga Makeup Studio & Academy**  
-Civil Lines, Prayagraj, UP  
+Jankipuram, Lucknow, UP  
 Komal Singh — Lead Artist & Founder
